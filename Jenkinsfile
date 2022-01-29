@@ -1,7 +1,7 @@
-node ("aws-node"){
+node ("rhel-node"){
     def mvnHome
     stage('clone') { // for display purposes
-        git 'https://github.com/devopsdesk/game-of-life.git'
+        git 'https://github.com/daticahealth/java-tomcat-maven-example.git'
     }
     stage('Build') {
             if (isUnix()) {
@@ -9,9 +9,5 @@ node ("aws-node"){
             } else {
                 bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
             }
-    }
-    stage('Results') {
-        junit 'gameoflife-core/target/surefire-reports/*.xml'
-        
     }
 }
