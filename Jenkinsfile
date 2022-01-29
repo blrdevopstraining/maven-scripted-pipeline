@@ -1,4 +1,7 @@
 node ("rhel-node"){
+    tools {
+    maven 'maven3.8.4'
+    }
     def mvnHome
     stage('clone') { // for display purposes
         git 'https://github.com/daticahealth/java-tomcat-maven-example.git'
